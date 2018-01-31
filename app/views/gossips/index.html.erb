@@ -1,1 +1,25 @@
 <h1>Index des Gossips :)</h1>
+
+	<table>
+  	<tr>
+  	  <th>ID du Gossip</th>
+   	  <th>Auteur</th>
+   	  <th>Contenu</th>
+  	</tr>
+ 
+  	<% @gossips.each do |gossip| %>
+    <tr>
+	  <td><%= gossip.id %></td>
+      <td><%= gossip.anonymous_author %></td>
+      <td><%= gossip.content %></td>
+      <td><%= link_to 'Montrer de plus près ;)', gossip_path(gossip) %></td>
+      <td><%= link_to 'Editer', edit_gossip_path(gossip) %></td>
+      <td><%= link_to 'Destruction de gossip', gossip_path(gossip),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+    </table>
+
+
+<div class ="btn btn-primary"><%= link_to 'Créer une nouvelle gossip hihi !', gossips_new_path %> </div>

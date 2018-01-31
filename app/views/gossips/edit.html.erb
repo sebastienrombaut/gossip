@@ -1,0 +1,24 @@
+<h1>Edite ta gossip ici !</h1>
+
+<%= form_for @gossip, url: {action: "update"}, html: {class: "nifty_form"} do |f| %>
+  <%= label_tag 'anonymous_author', 'Auteur anonyme :' %>
+  <%= f.text_field :anonymous_author %>
+  <%= label_tag 'content', 'Contenu :' %>
+  <%= f.text_field :content, size: "50x2" %>
+  <%= f.submit "Edit !" %>
+
+  <% if @gossip.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@gossip.errors.count, "error") %> prohibited
+        this gossip from being saved:
+      </h2>
+      <ul>
+        <% @gossip.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<% end %>

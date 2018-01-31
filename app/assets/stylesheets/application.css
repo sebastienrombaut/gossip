@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+   background-image: url("gossip-logo.png");
+   background-repeat: no-repeat;
+   background-position: top right;
+  
+}
